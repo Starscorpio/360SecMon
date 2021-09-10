@@ -1,0 +1,13 @@
+applications:
+- buildpacks: [ python_buildpack ]
+  command: gunicorn --env DJANGO_SETTINGS_MODULE=securitymonitoringproject.settings.production securitymonitoringproject.wsgi -b 0.0.0.0:$PORT
+  domain: null
+  host: null
+  instances: 1
+  memory: 256M
+  name: securitymonitoringproject
+  routes:
+  - route: sec-mon-project.eu-gb.cf.appdomain.cloud
+  services:
+  - cloud-object-storage-yy
+  timeout: 180

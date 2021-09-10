@@ -1,0 +1,10 @@
+applications:
+  buildpack: https://github.com/cloudfoundry/python-buildpack
+  domain: null
+  host: null
+  instances: 1
+  memory: 128M
+  name: securitymonitoringproject
+  routes:
+  - route: securitymon.eu-gb.cf.appdomain.cloud
+  timeout: 180
