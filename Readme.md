@@ -7,13 +7,16 @@
 
 ## Steps to setup the project:-
 * Install python:-
-	- sudo apt install python3-pip (Linux)
-	- Install python directly from website (along with the pip3 tool): python.org (windows)
+	* sudo apt install python3-pip (Linux)
+	* Install python directly from website (along with the pip3 tool): python.org (windows)
 
 * Drag/Copy the entire folder over to your filesystem.
 
 * Install django:-
-	pip install django or pip3 install django
+	* pip install django or pip3 install django
+
+* Or use:
+	* pip install -r requirements.txt
 
 * Setup MYSQL database:-
 	* Login to mysql as root user -> mysql -u root -p 'user_password'
