@@ -1,9 +1,10 @@
 # 360 Degree Security Monitoring of an Enterprise
 
-## Prerequisities to setup the project:-
+## Basic Prerequisities to setup the project:-
 * python3
 * pip3
 * django framework
+* for installation of other libraries, packages and modules use requirements.txt
 
 ## Steps to setup the project:-
 * Install python:-
