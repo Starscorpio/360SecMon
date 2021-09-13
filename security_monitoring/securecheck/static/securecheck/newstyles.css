@@ -1,0 +1,13 @@
+table {
+  display: table;
+}
+table tr {
+  display: table-cell;
+  margin-right: auto;
+}
+table td tr {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}

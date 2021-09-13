@@ -1,0 +1,1571 @@
+<!doctype html>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width: 1665px; width: 100%; z-index: 500; position: fixed!important;">
+  <div class="container-fluid">  
+    <span style="margin-right: 1rem; color: white; float: left; font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    <a class="navbar-brand" href="{% url 'newanalytics' %}">Security monitoring</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'newanalytics' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'newanalytics' %}">Analytics</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Products
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+        </li>
+      </ul>
+      <span class="hello-msg">Hello, {{ request.user }}</span>
+      <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+  <div id="mySidenav" class="sidenav bg-dark" style=" float: left; background-color: rgb(14, 13, 13)!important; margin-top: 3.5rem; height: 8000px; position: fixed!important;">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">About</a>
+    <a href="{% url 'newkeyspdf' %}" target="_blank" rel="noopener noreferrer">View Report</a>
+    <a href="{% url 'notify' %}" target="_blank" rel="noopener noreferrer">Notifications</a>
+    <a href="#">Contact</a>
+  </div>
+  <div id="main">
+    <div style="flex: auto;">
+        <html lang="en" style="width: 100%; height: 100%;">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/static/securecheck/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Users/starscorp1o/Downloads/MDB5-STANDARD-UI-KIT-Free-3.5.1/css/mdb.min.css" />
+    <link href="/Users/starscorp1o/Downloads/MDB5-STANDARD-UI-KIT-Free-3.5.1/css/addons/datatables.min.css" rel="stylesheet">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href=
+"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+         rel="stylesheet">
+
+<link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+<!-- Bootstrap core JavaScript-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Page level plugin JavaScript--><script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="/Users/starscorp1o/Downloads/MDB5-STANDARD-UI-KIT-Free-3.5.1/js/addons/datatables.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    
+    <title>Hello, world!</title>
+  </head>
+  <body style="width: 100%; height: 100%;">
+    
+    </script>
+    
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+    <style>
+        .hello-msg {
+            font-size: 18px;
+            color: white;
+            margin-right: 20px;
+        }
+        div.card {
+  width: 450px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#parent #popup{
+  display: none;
+}
+
+#parent:hover #popup{
+  display: block;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: auto;
+    content: "";
+    background-color: rgba(0,0,0,0);
+}
+#touch #popup {
+  display: none;
+}
+#touch:hover #popup{
+  display: block;
+}
+    </style>
+  <h1 style="margin-top: 4rem; margin-left: 2.5rem;">Dashboard</h1>
+  <form id="new_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="width: 1500px; margin-left: 2.5rem; margin-top: 0.7rem; margin-right: 34rem; float: left;">
+          <label style="font-size: 20px;">Check validity of SSL Certificates and Keys (formats allowed: .txt, .crt, .pem, .pub, .pkcs, .key)</label>
+            {% csrf_token %}
+            <input type="file" name="filess" multiple="true" id="up_file">
+            <button formaction="{% url 'newanalytics' %}" value='please_submit' name="sub">Submit</button>
+  </form>
+  <p style="font-size: 20px; margin-left: 2.5rem;">Upload password-protected key: 
+  <a style="margin-right: 1rem; margin-left: 2.5rem; font-size: 16px;" href = "{% url 'pass' %}" value='upload_key'><button>Upload</button></a>
+  </p>
+        <p style="font-weight: bold; font-size: 20px;"></p>
+        <p style=""></p>
+        <div class="newcard card text-white bg-success bg-gradient mb-3" style="background-color:#08317c!important; width: 22%; float: left; margin-top: 1rem; margin-left: 2.5rem; height: 11rem; margin-bottom: 2rem;">
+            <div class="card-header">Certificates</div>
+            <div class="card-body">
+              <h5 class="card-title">No. of Certificates</h5>
+              <svg style="float: left; color: white; padding-left: 5rem; margin-left: 2rem; margin-bottom: 4rem; padding-bottom: 2rem;" xmlns="http://www.w3.org/2000/svg" width="130" height="100" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+                <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+                <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+              </svg>
+              <p style="text-align: center; font-weight: bold; font-size: 30px; padding-top: 1.2rem; float: left; margin-left: 1rem;" class="card-text">24</p>
+              <a href="#breakitz"  class="stretched-link"></a>
+            </div>
+          </div>        
+          <div class="newcard card text-white bg-primary bg-gradient mb-3" style="background-color: #a71e11!important; width: 22%; float: left; margin-top: 1rem; margin-left: 2.5rem; height: 11rem; margin-bottom: 2rem;">
+            <div class="card-header">Keys</div>
+            <div class="card-body">
+              <h5 class="card-title">No. of Keys</h5>
+              <svg style="float: left; color: white; padding-left: 5rem; margin-left: 2rem; margin-bottom: 4rem; padding-bottom: 2rem; padding-top: 1.2rem;" xmlns="http://www.w3.org/2000/svg" width="130" height="100" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+                <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z"/>
+                <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+              </svg>
+              <p style="text-align: center; font-weight: bold; font-size: 30px; padding-top: 1.2rem; float: left; margin-left: 1rem;" class="card-text">17</p>
+              <a href="#totalkeys" class="stretched-link"></a>
+            </div>
+            </div>          
+            <div class=" newcard card text-white bg-secondary bg-gradient mb-3" style=" background-color:#dfbd27!important; width: 22%; float: left; margin-top: 1rem; margin-left: 2.5rem; height: 11rem; margin-bottom: 2rem; margin-right: 0;">
+                <div class="card-header">Action needed (Certificates)</div>
+                <div class="card-body">
+                  <h5 class="card-title">Expired, Revoked or Inadequate encryption</h5>
+                  <p style="text-align: center; font-weight: bold; font-size: 30px;" class="card-text">4</p>
+                  <a href="{% url 'expcerts' %}" target="_blank" rel="noopener noreferrer" class="stretched-link"></a>
+                </div>
+                </div>             
+                <div class="newcard card text-white bg-danger bg-gradient mb-3" style=" background-color: #227c51!important; width: 22%; float: left; margin-top: 1rem; margin-left: 2.5rem; height: 11rem; margin-right: 1%; margin-bottom: 2rem;">
+                    <div class="card-header">Action needed (Keys)</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Improper Length or Inadequate encryption</h5>
+                      <p style="text-align: center; font-weight: bold; font-size: 30px;" class="card-text">3</p>
+                      <a href="{% url 'bkeys' %}" target="_blank" rel="noopener noreferrer" class="stretched-link"></a>
+                    </div>
+                  </div>
+                  <hr style="margin-top: 17.2rem; margin-bottom: 1rem;">
+                  <ol style="margin-left: 2.5rem; width: 95.2%; height: 25px; padding-bottom: 3rem; margin-top: 1.5rem; background-color: rgba(204, 206, 212, 0.74);" class="breadcrumb">
+                    <li style="font-size: 20px; margin-top: 0.5rem; margin-left: 1rem;"class="breadcrumb-item active">Action Needed Analytics - Certificates</li>
+                  </ol>
+                  <div style=" width: 35%; margin-bottom: 0rem; margin-left: 2.5rem; margin-top: 0rem; float: left;  height: 435px;" class="card">        
+                    <div style="width: 100%!important; float: left; margin-top: 0rem; margin-bottom: 0rem; margin-left: 0rem; margin-right: 0rem;" id="piechart">
+                        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                        
+                        <script type="text/javascript">
+                        // Load google charts
+                        google.charts.load('current', {'packages':['corechart']});
+                        google.charts.setOnLoadCallback(drawChart);
+                        // Draw the chart and set the chart values
+                        function drawChart() {
+                          var data = google.visualization.arrayToDataTable([
+                      ['Task', 'link', 'Hours per Day'],
+                      ['Expired', '../exp_certs', 3],
+                      ['Inadequate encryption', '../expcerts', 4],
+                      ['Revoked', '../rev_certs', 7]
+                    ]);
+                        
+                          var view = new google.visualization.DataView(data);
+                          view.setColumns([0, 2]);      
+                    // Optional; add a title and set the width and height of the chart
+                          var options = {'title':'Action needed parameters', 'width_units':'%', 'height_units':'%', 'width':'600', 'height':'400', is3D: true};
+                        
+                          // Display the chart inside the <div> element with id="piechart"
+                          var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                          chart.draw(view, options);
+                          var selectHandler = function(e) {
+                          window.location = data.getValue(chart.getSelection()[0]['row'], 1 );
+                        }
+                        // Add our selection handler.
+                          google.visualization.events.addListener(chart, 'select', selectHandler);
+                        }
+                          $(window).resize(function(){
+      var container = document.getElementById("piechart").firstChild.firstChild;
+      container.style.width = "100%";
+
+      chart.draw(data, options);
+  });
+                        </script>
+                    </div>
+                    </div>
+                <div style="width: 58%; margin-bottom: 2rem; margin-left: 2.5rem; margin-right: 0rem; margin-top: 0rem; padding-left: 3rem; padding-top: 1rem; padding-bottom: 1rem; padding-right: 5rem; float: left;" class="card">
+                        <div style="width: 50%!important; float: right; padding-bottom: 0rem; padding-right: 7rem; padding-top: 0rem;" id="new_chart">
+                          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                          <script type="text/javascript">
+                            google.charts.load('current', {'packages':['line']});
+                            google.charts.setOnLoadCallback(drawChart);
+                      
+                          function drawChart() {
+                      
+                            var data = new google.visualization.DataTable();
+                            data.addColumn('date', 'Month');
+                            data.addColumn('number', 'Expired');
+                            data.addColumn('number', 'Inadequate encryption');
+                            data.addColumn('number', 'Revoked');
+                      
+                            data.addRows([
+                              [new Date(2020, 5),  null, null, null],
+                              [new Date(2020, 6),  null, null, null],
+                              [new Date(2020, 7),  null, null, null],
+                              [new Date(2020, 8),  null, null, null],
+                              [new Date(2020, 9),  null, null, null],
+                              [new Date(2020, 10),   4, 3, 5],
+                              [new Date(2020, 11),   5, 1, 6],
+                              [new Date(2021, 0),  8, 10, 3],
+                              [new Date(2021, 1),  3, 4, 5],
+                              [new Date(2021, 2), 5, 6, 9],
+                              [new Date(2021, 3),  3, 5, 2],
+                              [new Date(2021, 4),  1, 3, 8],
+                            ]);
+                      
+                            var options = {
+                              chart: {
+                                title: 'Trend Overview',
+                                subtitle: 'Expired, Revoked or Inadequate encryption'
+                              },
+                              width: 885,
+                              height: 400,
+                              axes: {
+                                x: {
+                                  0: {side: 'bottom'}
+                                }
+                              }
+                            };
+                      
+                            var chart = new google.charts.Line(document.getElementById('new_chart'));
+                      
+                            chart.draw(data, google.charts.Line.convertOptions(options));
+                          }
+                          (window).resize(function(){
+      var container = document.getElementById("new_chart").firstChild.firstChild;
+      container.style.width = "100%";
+      chart.draw(data, options);
+  });
+                        </script>
+                        </div>
+                        </div>
+                        <hr style="margin-top: 26rem; color: white;" id="breakitz">
+                        
+                          <div id="totalcerts" style="padding-right: 0rem; width: 95%; height: 600px; margin-left: 2.5rem; padding-top: 0rem;" class="card">
+                                <table id="datt" style="width: 100%;  margin-left: 0rem; margin-bottom: 0rem; margin-top: 0rem; padding-top: 0rem;" class="table table-hover paginated">
+                                  <tbody>
+                                    <p id="certs" style="color: black; background-color: white; width: 100%; padding-right: 50px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; border-style: solid; border-left: 0px; border-right: 0px; border-top: 0px; border-bottom-style: solid; border-bottom-color: black; border-bottom-width: 2px; margin: 0; text-align: center; font-size: 25px; font-weight: bold;">Certificates</p>
+                          <thead>
+                            <th style="color: black; background-color: white; font-weight: bold; text-align: center; font-size: 20px;">Subject</th>
+                            <th style="color: black; background-color: white; font-weight: bold; text-align: center; font-size: 20px;">Signature Algorithm</th>
+                            <th style="color: black; background-color: white; font-weight: bold; text-align: center; font-size: 20px;">Expiry</th>
+                            <th id="touch" style="color: black; background-color: white; font-weight: bold; text-align: center; font-size: 20px;">Expiry Status</th>
+                            <th style="color: black; background-color: white; font-weight: bold; text-align: center; font-size: 20px;">View/Update/Delete</th>
+                            <th style="color: black; background-color: white; font-weight: bold; text-align: center; font-size: 20px; padding-right: 6.5rem;">Location</th>
+                            <th style="color: black; background-color: white; font-weight: bold; text-align: center; font-size: 20px; padding-right: 6.5rem;">Status</th>
+                          </thead>          
+                                    {% for con in info %}
+                          <tr id="{{ con.id }}">
+                            
+                            <td>{{ con.Subject }}</td>
+                            <td>{{ con.Encryption }}</td>
+                          <td>{{ con.Not_Valid_After }}</td>
+                          <td>{{ con.Status }}</td>
+                          <td>
+                            <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+                            <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+                            <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+                          </td>
+                          <td style="width: 270px;">
+                            <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 250px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 1rem;">
+                                {% csrf_token %}
+                                <input type="text" placeholder="Enter location" name="location">
+                                <button formaction="{% url 'location' con.id %}" value='please_submit'>Add</button>
+                            </form>
+                            </td>
+                            {% if 'location added' in con.location_status %}
+                            <td style="width: 100px;">
+                              <svg style="color: green; " xmlns="http://www.w3.org/2000/svg" width="155" height="20" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
+                              </svg>
+                          </td>
+                            {% else %}
+                            <td>
+                              <p style="color: red; font-size: 20px;" title="Please Update Location!" data-toggle="tooltip">X</p>
+                              
+                            </td>
+                            {% endif %}
+                        </tr>
+                          {% endfor %}
+                                  </tbody>
+                                </table>
+                              </div>
+                              <h2 style="color: white; display: inline; float: right; margin-right: 3rem; z-index: 1000; margin-top: 0rem;">s</h2>
+                              
+                              <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+                              <script type="text/javascript">
+                                $(function() {
+                                    $('table.paginated').each(function() {
+                                      var currentPage = 0;
+                                      var numPerPage = 7;
+                                      var $table = $(this);
+                                      $table.bind('repaginate', function() {
+                                        $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
+                                      });
+                                      $table.trigger('repaginate');
+                                      var numRows = $table.find('tbody tr').length;
+                                      var numPages = Math.ceil(numRows / numPerPage);
+                                      var $pager = $('<div hidden class="pager"></div>');
+                                      var $previous = $('<button style="margin-left: 105rem; z-index: 1000; margin-top: 1.5rem;" class="previous btn btn-dark">Prev</button>');
+                                      var $next = $('<button style="margin-left: 0rem; float: right; z-index: 1000; margin-top: 1.5rem;" class="next btn btn-dark">Next</button>');
+                                      for (var page = 0; page < numPages; page++) {
+                                        $('<span class="page-number"></span>').text("s").bind('click', {
+                                          newPage: page
+                                        }, function(event) {
+                                          currentPage = event.data['newPage'];
+                                          $table.trigger('repaginate');
+                                          $(this).addClass('active').siblings().removeClass('active');
+                                        }).appendTo($pager).addClass('clickable');
+                                      }
+                                      $pager.insertAfter($table).find('span.page-number:first').addClass('active');
+                                      $previous.insertBefore('h2');
+                                      $next.insertAfter('h2');
+                                  
+                                      $next.click(function(e) {
+                                        $previous.addClass('clickable');
+                                        $pager.find('.active').next('.page-number.clickable').click();
+                                      });
+                                      $previous.click(function(e) {
+                                        $next.addClass('clickable');
+                                        $pager.find('.active').prev('.page-number.clickable').click();
+                                      });
+                                      $table.on('repaginate', function() {
+                                        $next.addClass('clickable');
+                                        $previous.addClass('clickable');
+                                  
+                                        setTimeout(function() {
+                                          var $active = $pager.find('.page-number.active');
+                                          if ($active.next('.page-number.clickable').length === 0) {
+                                            $next.removeClass('clickable');
+                                          } else if ($active.prev('.page-number.clickable').length === 0) {
+                                            $previous.removeClass('clickable');
+                                          }
+                                        });
+                                      });
+                                      $table.trigger('repaginate');
+                                    });
+                                  });
+                            </script>
+                            
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+            <script type="text/javascript">
+            
+
+// JavaScript Program to illustrate
+            // Table sort on a button click
+            
+
+            function sortTable() {
+                var table, i, x, y;
+                table = document.getElementById("datt");
+                var switching = true;
+                var pop = document.getElementById("touch");
+                pop.onmouseover = function() {
+                  document.getElementById('popup').style.display = 'block';
+                }
+                pop.onmouseout = function() {
+                  document.getElementById('popup').style.display = 'none';
+                }
+  
+                // Run loop until no switching is needed
+                while (switching) {
+                    switching = false;
+                    var rows = table.rows;
+  
+                    // Loop to go through all rows
+                    for (i = 1; i < (rows.length - 1); i++) {
+                        var Switch = false;
+  
+                        // Fetch 2 elements that need to be compared
+                        x = rows[i].getElementsByTagName("TD")[3];
+                        y = rows[i + 1].getElementsByTagName("TD")[3];
+  
+                        // Check if 2 rows need to be switched
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())
+                            {
+  
+                            // If yes, mark Switch as needed and break loop
+                            Switch = true;
+                            break;
+                        }
+                    }
+                    if (Switch) {
+                        // Function to switch rows and mark switch as completed
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        switching = true;
+                    }
+                }
+            }
+            function unsortTable() {
+                var table, i, x, y;
+                table = document.getElementById("datt");
+                var switching = true;
+                var pop = document.getElementById("touch");
+                pop.onmouseover = function() {
+                  document.getElementById('popup').style.display = 'block';
+                }
+                pop.onmouseout = function() {
+                  document.getElementById('popup').style.display = 'none';
+                }
+  
+                // Run loop until no switching is needed
+                while (switching) {
+                    switching = false;
+                    var rows = table.rows;
+  
+                    // Loop to go through all rows
+                    for (i = 1; i < (rows.length - 1); i++) {
+                        var Switch = false;
+  
+                        // Fetch 2 elements that need to be compared
+                        x = rows[i].getElementsByTagName("TD")[3];
+                        y = rows[i + 1].getElementsByTagName("TD")[3];
+  
+                        // Check if 2 rows need to be switched
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase())
+                            {
+  
+                            // If yes, mark Switch as needed and break loop
+                            Switch = true;
+                            break;
+                        }
+                    }
+                    if (Switch) {
+                        // Function to switch rows and mark switch as completed
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        switching = true;
+                    }
+                }
+            }
+            $('#touch').click(function(){
+              sortTable();
+            });
+            $('#touch').dblclick(function(){
+              unsortTable();
+            });
+            
+            </script>
+            <hr>
+            <ol style="margin-left: 2.5rem; width: 95.2%; height: 25px; padding-bottom: 3rem; margin-top: 1.5rem; background-color: rgba(204, 206, 212, 0.74);" class="breadcrumb">
+              <li style="font-size: 20px; margin-top: 0.5rem; margin-left: 1rem;"class="breadcrumb-item active">Action Needed Analytics - Keys</li>
+            </ol>
+
+            <div style=" width: 35%; margin-bottom: 0rem; margin-left: 2.5rem; margin-top: 0rem; float: left;  height: 435px;" class="card">
+    <div style="width: 100%!important; float: left; margin-top: 0rem; margin-bottom: 0rem; margin-left: 0rem; margin-right: 0rem;" id="piechart2">
+        
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        
+        <script type="text/javascript">
+        // Load google charts
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        // Draw the chart and set the chart values
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+      ['Task', 'link', 'Hours per Day'],
+      ['Improper length', '../onlylen' ,3],
+      ['Inadequate encryption', '../onlyenc' ,2],
+    ]);
+          
+    
+    var view = new google.visualization.DataView(data);
+                          view.setColumns([0, 2]);      
+                    // Optional; add a title and set the width and height of the chart
+                          var options = {'title':'Action needed parameters', 'width_units':'%', 'height_units':'%', 'width':'600', 'height':'400', is3D: true};
+                        
+                          // Display the chart inside the <div> element with id="piechart"
+                          var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+                          chart.draw(view, options);
+                          var selectHandler = function(e) {
+                          window.location = data.getValue(chart.getSelection()[0]['row'], 1 );
+                        }
+                        // Add our selection handler.
+                          google.visualization.events.addListener(chart, 'select', selectHandler);
+                        }
+                          $(window).resize(function(){
+      var container = document.getElementById("piechart2").firstChild.firstChild;
+      container.style.width = "100%";
+
+      chart.draw(data, options);
+  });
+        </script>
+    </div>
+    </div>
+    <div style="width: 58%; margin-bottom: 2rem; margin-left: 2.5rem; margin-right: 0rem; margin-top: 0rem; padding-left: 3rem; padding-top: 1rem; padding-bottom: 1rem; padding-right: 5rem; float: left;" class="card">
+    <div style="width: 50%!important; float: right; padding-bottom: 0rem; padding-right: 7rem; padding-top: 0rem;" id="line_top_x">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+          google.charts.load('current', {'packages':['line']});
+          google.charts.setOnLoadCallback(drawChart1);
+    
+        function drawChart1() {
+    
+          var data = new google.visualization.DataTable();
+          data.addColumn('date', 'Month');
+          data.addColumn('number', 'NotusingSHA256');
+          data.addColumn('number', 'Revoked');
+          data.addColumn('number', 'Expired');
+    
+          data.addRows([
+          [new Date(2020, 5),  null, null, null],
+          [new Date(2020, 5),  null, null, null],
+                              [new Date(2020, 6),  null, null, null],
+                              [new Date(2020, 7),  null, null, null],
+                              [new Date(2020, 8),  null, null, null],
+                              [new Date(2020, 9),  null, null, null],
+                              [new Date(2020, 10),   4, 3, 5],
+                              [new Date(2020, 11),   5, 1, 6],
+                              [new Date(2021, 0),  8, 10, 3],
+                              [new Date(2021, 1),  3, 4, 5],
+                              [new Date(2021, 2), 5, 6, 9],
+                              [new Date(2021, 3),  3, 5, 2],
+                              [new Date(2021, 4),  1, 3, 8],
+          ]);
+    
+          var options = {
+            chart: {
+              title: 'Keys parameters',
+              subtitle: 'Expired, Revoked or Bad encryption'
+            },
+            width: 885,
+            height: 400,
+            axes: {
+              x: {
+                0: {side: 'bottom'}
+              }
+            }
+          };
+    
+          var chart = new google.charts.Line(document.getElementById('line_top_x'));
+    
+          chart.draw(data, google.charts.Line.convertOptions(options));
+        }
+        $(window).resize(function(){
+  drawChart1();
+});
+      </script>
+    </div>
+    </div>
+    <div style="padding-right: 0rem; width: 95%; height: 500px; margin-left: 2.5rem; padding-top: 0rem;" class="card">
+      <table id="totalkeys" style="width: 100%;  margin-left: 0rem; margin-bottom: 0rem; margin-top: 0rem; padding-top: 0rem;" class="table table-hover pagi">
+        <tbody>
+          <p style="color: black; background-color: white; width: 100%; padding-right: 50px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; border-style: solid; border-left: 0px; border-right: 0px; border-top: 0px; border-bottom-style: solid; border-bottom-color: black; border-bottom-width: 2px; margin: 0; text-align: center; font-size: 25px; font-weight: bold;">Keys</p>
+<thead style="border-bottom-color: black; border-bottom-width: 2px;">
+  <th style="color: black; background-color: white; font-weight: bold; text-align: center; font-size: 20px;">Length</th>
+  <th style="color: black; background-color: white; font-weight: bold; text-align: center; font-size: 20px;">Signature Algorithm</th>
+  <th style="color: black; background-color: white; font-weight: bold; text-align: center; font-size: 20px;">View/Update/Delete</th>
+  <th style="color: black; background-color: white; font-weight: bold; text-align: center; font-size: 20px; padding-right: 10rem;">Location</th>
+</thead>
+{% for o in security_all_keys %}         
+<tr>
+  <td>{{ o.Number_of_bits }}</td>
+  <td>{{ o.Encryption }}</td>
+</tr> 
+{% endfor %}
+<tr>
+  <td>3072</td>
+  <td>SHA1</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+  <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+    {% csrf_token %}
+    <input type="text" placeholder="Enter location" name="location">
+    <button formaction="#" value='please_submit'>Add</button>
+</form>
+</td>
+</tr>
+<tr>
+  <td>2048</td>
+  <td>SHA256</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+</tr>
+<tr>
+  <td>2048</td>
+  <td>SHA256</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+</tr>
+<tr>
+  <td>3072</td>
+  <td>SHA1</td>
+    <td>
+      <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+      <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+      <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+    </td>
+    <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+<tr>
+  <td>512</td>
+  <td>SHA256</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+</tr>
+<tr>
+  <td>512</td>
+  <td>SHA256</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+</tr>
+<tr>
+  <td>3072</td>
+  <td>SHA1</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+</tr>
+<tr>
+  <td>3072</td>
+  <td>SHA1</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+</tr>
+<tr>
+  <td>512</td>
+  <td>SHA256</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+</tr>
+<tr>
+  <td>512</td>
+  <td>SHA256</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+</tr>
+<tr>
+  <td>512</td>
+  <td>SHA256</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+</tr>
+<tr>
+  <td>512</td>
+  <td>SHA256</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+</tr>
+{% for blah in ourkeys %}
+<tr>
+<td>{{ blah.Number_of_bits }}</td>
+<td>{{ blah.Encryption }}</td>
+<td>
+  <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+  <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+  <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+</td>
+<td>
+  <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+    {% csrf_token %}
+    <input type="text" placeholder="Enter location" name="location">
+    <button formaction="#" value='please_submit'>Add</button>
+</form>
+</td>
+</tr>
+{% endfor %}
+<tr>
+  <td>256</td>
+  <td>SHA256</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+</tr>
+<tr>
+  <td>256</td>
+  <td>SHA256</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+</tr>
+<tr>
+  <td>2048</td>
+  <td>SHA1</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+</tr>
+<tr>
+  <td>3072</td>
+  <td>SHA1</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+</tr>
+<tr>
+  <td>3072</td>
+  <td>SHA1</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+</tr>
+<tr>
+  <td>2048</td>
+  <td>SHA1</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+</tr>
+<tr>
+  <td>512</td>
+  <td>SHA256</td>
+  <td>
+    <a href = "/info/{{ con.id }}" target="_blank" rel="noopener noreferrer"><button>View</button></a>
+    <a style="margin-right: 2rem; margin-left: 2rem;" href = "/update/{{ con.id }}" value='please_delete'><button>Update</button></a>
+    <a href = "/Delete/{{ con.id }}" value='please_delete' class="btnDel" name="delt" style=""><button>Delete</button></a>
+  </td>
+  <td>
+    <form id="location_form" method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 0rem; width: 450px; margin-top: 0.7rem; margin-right: 0rem; float: left; padding-left: 10rem;">
+      {% csrf_token %}
+      <input type="text" placeholder="Enter location" name="location">
+      <button formaction="#" value='please_submit'>Add</button>
+  </form>
+  </td>
+</tr>
+        </tbody>
+      </table>
+    </div>
+    <p>{{ text }}</p>
+    <p>{{ readfile }}</p>
+    <p>{{ xsub }}</p>
+    <p>{{ newcertexp }}</p>
+    <p>{{ newcertnotafter }}</p>
+    <p>{{ newcertnotbefore }}</p>
+    <p>{{ newcertnotafterconv }}</p>
+    <p>{{ newcertissuer }}</p>
+    <p>{{ newcertsernumber }}</p>
+    <p>{{ newcertversion }}</p>
+    <p>{{ newcertsigalgo }}</p>
+    <p>{{ newcertsubhash }}</p>
+    <p>{{ newcerthash }}</p>
+    <p>{{ CA }}</p>
+    <p>{{ newcertextensions }}</p>
+    <p>{{ newcertextdata }}</p>
+    <p>{{ extresultone }}</p>
+    <p>{{ newextt }}</p>
+    <p>{{ newcertdigest }}</p>
+    <p>{{ newcertname }}</p>
+    <p>{{ keyalgo }}</p>
+    <p>{{ issuerres }}</p>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+                            <script type="text/javascript">
+                            $(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+                            </script>
+      <p id="demo"></p>
+    <h3 style="color: white; display: inline; float: right; margin-right: 3rem; z-index: 1000; margin-top: 0rem;">s</h3>
+              <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+                <script type="text/javascript">
+                                $(function() {
+                                    $('table.pagi').each(function() {
+                                      var currentPage = 0;
+                                      var numPerPage = 6;
+                                      var $table = $(this);
+                                      $table.bind('repaginate', function() {
+                                        $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
+                                      });
+                                      $table.trigger('repaginate');
+                                      var numRows = $table.find('tbody tr').length;
+                                      var numPages = Math.ceil(numRows / numPerPage);
+                                      var $pager = $('<div hidden class="pager"></div>');
+                                      var $previous = $('<button style="margin-left: 105rem; z-index: 1000; margin-top: 0.5rem;" class="previous btn btn-dark">Prev</button>');
+                                      var $next = $('<button style="margin-left: 0rem; float: right; z-index: 1000; margin-top: 0.5rem;" class="next btn btn-dark">Next</button>');
+                                      for (var page = 0; page < numPages; page++) {
+                                        $('<span class="page-number"></span>').text("s").bind('click', {
+                                          newPage: page
+                                        }, function(event) {
+                                          currentPage = event.data['newPage'];
+                                          $table.trigger('repaginate');
+                                          $(this).addClass('active').siblings().removeClass('active');
+                                        }).appendTo($pager).addClass('clickable');
+                                      }
+                                      $pager.insertAfter($table).find('span.page-number:first').addClass('active');
+                                      $previous.insertBefore('h3');
+                                      $next.insertAfter('h3');
+                                  
+                                      $next.click(function(e) {
+                                        $previous.addClass('clickable');
+                                        $pager.find('.active').next('.page-number.clickable').click();
+                                      });
+                                      $previous.click(function(e) {
+                                        $next.addClass('clickable');
+                                        $pager.find('.active').prev('.page-number.clickable').click();
+                                      });
+                                      $table.on('repaginate', function() {
+                                        $next.addClass('clickable');
+                                        $previous.addClass('clickable');
+                                  
+                                        setTimeout(function() {
+                                          var $active = $pager.find('.page-number.active');
+                                          if ($active.next('.page-number.clickable').length === 0) {
+                                            $next.removeClass('clickable');
+                                          } else if ($active.prev('.page-number.clickable').length === 0) {
+                                            $previous.removeClass('clickable');
+                                          }
+                                        });
+                                      });
+                                      $table.trigger('repaginate');
+                                    });
+                                  });
+                            </script>
+                            
+                            
+                            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+                            <script type="text/javascript">
+                            function myfunction() {
+  var x = document.getElementById("up_file").value;
+  document.getElementById("demo").innerHTML = x;
+}
+                            </script>
+                            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+                            <script type="text/javascript">
+// JavaScript Program to illustrate
+    // Table sort on a button click
+    function sortTable() {
+        var table, i, x, y;
+        table = document.getElementById("totalkeys");
+        var switching = true;
+        var pop = document.getElementById("touch");
+        pop.onmouseover = function() {
+          document.getElementById('popup').style.display = 'block';
+        }
+        pop.onmouseout = function() {
+          document.getElementById('popup').style.display = 'none';
+        }
+
+        // Run loop until no switching is needed
+        while (switching) {
+            switching = false;
+            var rows = table.rows;
+
+            // Loop to go through all rows
+            for (i = 1; i < (rows.length - 1); i++) {
+                var Switch = false;
+
+                // Fetch 2 elements that need to be compared
+                x = rows[i].getElementsByTagName("TD")[3];
+                y = rows[i + 1].getElementsByTagName("TD")[3];
+
+                // Check if 2 rows need to be switched
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())
+                    {
+
+                    // If yes, mark Switch as needed and break loop
+                    Switch = true;
+                    break;
+                }
+            }
+            if (Switch) {
+                // Function to switch rows and mark switch as completed
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+    }
+    function unsortTable() {
+        var table, i, x, y;
+        table = document.getElementById("totalkeys");
+        var switching = true;
+        var pop = document.getElementById("touch");
+        pop.onmouseover = function() {
+          document.getElementById('popup').style.display = 'block';
+        }
+        pop.onmouseout = function() {
+          document.getElementById('popup').style.display = 'none';
+        }
+
+        // Run loop until no switching is needed
+        while (switching) {
+            switching = false;
+            var rows = table.rows;
+
+            // Loop to go through all rows
+            for (i = 1; i < (rows.length - 1); i++) {
+                var Switch = false;
+
+                // Fetch 2 elements that need to be compared
+                x = rows[i].getElementsByTagName("TD")[3];
+                y = rows[i + 1].getElementsByTagName("TD")[3];
+
+                // Check if 2 rows need to be switched
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase())
+                    {
+
+                    // If yes, mark Switch as needed and break loop
+                    Switch = true;
+                    break;
+                }
+            }
+            if (Switch) {
+                // Function to switch rows and mark switch as completed
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+    }
+    $('#touch').click(function(){
+      sortTable();
+    });
+    $('#touch').dblclick(function(){
+      unsortTable();
+    });
+    
+    </script>
+    </div>
+  </div>
+  
+  <script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+  }
+  </script>
+  </div>
+</body>
+</html>
+  <!--
+        <div style="flex: auto;">
+    <form method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data">
+      <label>Check if your ssl certificate and keys are valid (formats allowed: txt, crt, pem)</label>
+        {% csrf_token %}
+        <input type="file" name="filess" multiple="true">
+        <button formaction="{% url 'newanalytics' %}">Submit</button>
+    </form>
+    <p style="font-weight: bold;">Certificates</p>
+    <p> <- Go back to dashboard for Complete Analytics</p>
+    <a href="{% url 'home' %}" class="btn btn-primary">Back to Dashboard</a>
+    <div class="card text-white bg-primary mb-3" style="width: 22rem; float: left; margin-top: 10rem; margin-left: 20rem; height: 11rem;">
+        <div class="card-header">Certificates</div>
+        <div class="card-body">
+          <h5 class="card-title">Total Certificates</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+      <div class="card text-white bg-success mb-3" style="width: 22rem; float: left; margin-top: 10rem; margin-left: 2rem; height: 11rem;">
+        <div class="card-header">Keys</div>
+        <div class="card-body">
+          <h5 class="card-title">Total Keys</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        </div>
+        <div class="card text-white bg-warning mb-3" style="width: 22rem; float: left; margin-top: 10rem; margin-left: 2rem; height: 11rem;">
+            <div class="card-header">Bad certificates</div>
+            <div class="card-body">
+              <h5 class="card-title">Expired, Revoked or Bad encryption</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            </div>
+            <div class="card text-white bg-danger mb-3" style="width: 22rem; float: left; margin-top: 7.6rem; margin-left: 2rem; height: 11rem; margin-right: 5rem;">
+                <div class="card-header">Bad keys</div>
+                <div class="card-body">
+                  <h5 class="card-title">Expired, Revoked or Bad encryption</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+    <div style="padding-bottom: 2rem; margin-top: 20rem; margin-left: 25rem;" class="container">
+    <div class="table-responsive">
+        <table class="table table-dark">
+          <tbody>
+            <tr>
+                {% for v in wording1 %}
+                <td style="font-weight: bold; text-align: center;">{{ v }}</td>
+                {% endfor %}
+              {%  for i in hii %}
+                <td style="text-align: center;">{{ i }}</td>
+              {% endfor %}
+            </tr>
+            <tr>
+                {% for o in wording2 %}
+                <td style="font-weight: bold; text-align: center;">{{ o }}</td>
+                {% endfor %}
+              {% for u in yono %}
+              <td style="text-align: center;">{{ u }}</td>
+              {% endfor %}
+            </tr>
+            <tr>
+                {% for h in wording3 %}
+                <td style="font-weight: bold; text-align: center;">{{ h }}</td>
+                {% endfor %}
+                {% for j in hiiii %}
+                <td style="text-align: center;">{{ j }}</td>
+              {% endfor %}
+            </tr>
+            <tr>
+                {% for f in wording4 %}
+                <td style="font-weight: bold; text-align: center;">{{ f }}</td>
+                {% endfor %}
+              {% for j in yelling %}
+                <td style="text-align: center;">{{ j }}</td>
+              {% endfor %}
+            </tr>
+            <tr>
+                {% for r in wording5 %}
+                <td style="font-weight: bold; text-align: center;">{{ r }}</td>
+                {% endfor %}
+              {% for z in expi %}
+              <td style="text-align: center;">{{ z }}</td>
+              {% endfor %}
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</div>
+<div style="margin-bottom: 2rem; margin-left: 25rem; margin-top: 13rem; float: left;" class="card">        
+    <div style="float: left; margin-top: 2rem;" id="piechart">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        
+        <script type="text/javascript">
+        // Load google charts
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        // Draw the chart and set the chart values
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      ['Expired', {{ newlen }}],
+      ['Notusingsha256', {{ county }}],
+      ['Revoked', {{ got_that_ocsp }}]
+    ]);
+        
+          // Optional; add a title and set the width and height of the chart
+          var options = {'title':'Combined errors', 'width':450, 'height':350, is3D: true};
+        
+          // Display the chart inside the <div> element with id="piechart"
+          var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+          chart.draw(data, options);
+        }
+        </script>
+    </div>
+    </div>
+<div style="margin-bottom: 2rem; margin-left: 5rem; margin-right: 13rem; margin-top: 2rem; padding-left: 3rem; width: 750px; padding-top: 3rem; padding-bottom: 3rem; padding-right: 7rem; float: right;" class="card">
+        <div style="float: right; padding-bottom: 2rem; padding-right: 7rem; padding-top: 2rem;" id="chart_div">
+            <script type="text/javascript">
+            google.charts.load('current', {'packages':['line', 'corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+        
+            function drawChart() {
+        
+              var button = document.getElementById('change-chart');
+              var chartDiv = document.getElementById('chart_div');
+        
+              var data = new google.visualization.DataTable();
+              data.addColumn('date', 'Month');
+              data.addColumn('number', "Expired");
+              data.addColumn('number', "Not using sha256");
+              data.addColumn('number', "Revoked");
+        
+              data.addRows([
+                [new Date(2021, 0),  2,  3, 2],
+                [new Date(2021, 1),   3,  2, 1],
+                [new Date(2021, 2),   1,   2, 0],
+                [new Date(2021, 3),  2, {{ county }}, {{ got_that_ocsp }}],
+                [new Date(2021, 4),  null, null, null],
+                [new Date(2021, 5),  null, null, null],
+                [new Date(2021, 6), null, null, null],
+                [new Date(2021, 7), null, null, null],
+                [new Date(2021, 8),  null, null, null],
+                [new Date(2021, 9),  null, null, null],
+                [new Date(2021, 10), null, null, null],
+                [new Date(2021, 11), null, null, null],
+              ]);
+        
+              var materialOptions = {
+                chart: {
+                  title: 'Trend line for Expired certs and improper encryption'
+                },
+                width: 600,
+                height: 400,
+                series: {
+                  // Gives each series an axis name that matches the Y-axis below.
+                  0: {axis: ''},
+                  1: {axis: ''}
+                },
+                axes: {
+                  // Adds labels to each axis; they don't have to match the axis names.
+                  y: {
+                    Temps: {label: 'Temps (Celsius)'},
+                    Daylight: {label: 'Daylight'}
+                  }
+                }
+              };
+        
+              var classicOptions = {
+                title: 'Average Temperatures and Daylight in Iceland Throughout the Year',
+                width: 600,
+                height: 400,
+                // Gives each series an axis that matches the vAxes number below.
+                series: {
+                  0: {targetAxisIndex: 0},
+                  1: {targetAxisIndex: 1}
+                },
+                vAxes: {
+                  // Adds titles to each axis.
+                  0: {title: 'Temps (Celsius)'},
+                  1: {title: 'Daylight'}
+                },
+                hAxis: {
+                  ticks: [new Date(2014, 0), new Date(2014, 1), new Date(2014, 2), new Date(2014, 3),
+                          new Date(2014, 4),  new Date(2014, 5), new Date(2014, 6), new Date(2014, 7),
+                          new Date(2014, 8), new Date(2014, 9), new Date(2014, 10), new Date(2014, 11)
+                         ]
+                },
+                vAxis: {
+                  viewWindow: {
+                    max: 30
+                  }
+                }
+              };
+        
+              function drawMaterialChart() {
+                var materialChart = new google.charts.Line(chartDiv);
+                materialChart.draw(data, materialOptions);
+                button.innerText = 'Change to Classic';
+                button.onclick = drawClassicChart;
+              }
+        
+              function drawClassicChart() {
+                var classicChart = new google.visualization.LineChart(chartDiv);
+                classicChart.draw(data, classicOptions);
+                button.innerText = 'Change to Material';
+                button.onclick = drawMaterialChart;
+              }
+        
+              drawMaterialChart();
+        
+            }
+                
+            </script>
+        </div>
+        </div>
+        
+    <div style="margin-top: 45rem;" class="container">
+        <div class="table-responsive">
+            <table class="table table-dark">
+              <tbody>
+                <tr>
+                <td style="font-weight: bold; text-align: center;">{{ got_that_ocsp }}</td>
+                  {% for y in theresult %}
+                    <td style="text-align: center;">{{ y }}</td>
+                  {% endfor %}
+                </tr>
+                <tr>
+                <td style="font-weight: bold; text-align: center;">Not Valid After</td>
+                    {% for x in theresulting %}
+                      <td style="text-align: center;">{{ x }}</td>
+                    {% endfor %}
+                  </tr>
+                  <tr>
+                <td style="font-weight: bold; text-align: center;">Subject</td>
+                    {% for c in theresulted %}
+                      <td style="text-align: center;">{{ c }}</td>
+                    {% endfor %}
+                  </tr>
+                  <tr>
+                <td style="font-weight: bold; text-align: center;">Encryption</td>
+                    {% for s in thereale %}
+                      <td style="text-align: center;">{{ s }}</td>
+                    {% endfor %}
+                  </tr>
+                  <tr>
+                <td style="font-weight: bold; text-align: center;">Status</td>
+                    {% for d in finalresult %}
+                      <td style="text-align: center;">{{ d }}</td>
+                    {% endfor %}
+                  </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>
+<div style="margin-bottom: 2rem; margin-left: 18rem; margin-top: 9rem; float: left;" class="card">
+<div style="float: left; margin-top: 1rem;" id="piechart2">
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <script type="text/javascript">
+    // Load google charts
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    // Draw the chart and set the chart values
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['Expired', {{ football}}],
+  ['usingsha256', {{ dom }}],
+]);
+    
+      // Optional; add a title and set the width and height of the chart
+      var options = {'title':'Combined errors', 'width':450, 'height':350, is3D: true};
+    
+      // Display the chart inside the <div> element with id="piechart"
+      var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+      chart.draw(data, options);
+    }
+    </script>
+</div>
+</div>
+<div style="margin-bottom: 2rem; margin-left: 5rem; margin-right: 20rem; margin-top: 2rem; padding-left: 3rem; width: 750px; padding-top: 3rem; padding-bottom: 3rem; padding-right: 7rem; float: right;" class="card">
+<div style="float: right; padding-right: 7rem; padding-top: 2rem;" id="line_top_x">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('date', 'Month');
+      data.addColumn('number', 'NotusingSHA256');
+      data.addColumn('number', 'Revoked');
+      data.addColumn('number', 'Expired');
+
+      data.addRows([
+        [new Date(2021, 0),  2, 2, 3],
+        [new Date(2021, 1),  3, 1, 5],
+        [new Date(2021, 2),  5,   4, 6],
+        [new Date(2021, 3),  {{ newlen }}, {{ county }}, {{ got_that_ocsp }}],
+        [new Date(2021, 4),  null, null, null],
+        [new Date(2021, 5),   null, null, null],
+        [new Date(2021, 6),   null, null, null],
+        [new Date(2021, 7),  null, null, null],
+        [new Date(2021, 8),  null, null, null],
+        [new Date(2021, 9), null, null, null],
+        [new Date(2021, 10),  null, null, null],
+        [new Date(2021, 11),  null, null, null],
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Box Office Earnings in First Two Weeks of Opening',
+          subtitle: 'in millions of dollars (USD)'
+        },
+        width: 600,
+        height: 400,
+        axes: {
+          x: {
+            0: {side: 'bottom'}
+          }
+        }
+      };
+
+      var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+  </script>
+</div>
+</div>
+</div>
+<div style="margin-top: 45rem;" class="container">
+    <p style="font-weight: bold;">Keys</p>
+    <div class="table-responsive">
+        <table class="table table-dark">
+          <tbody>
+            <tr>
+                {% for n in wording %}
+                <td style="font-weight: bold; text-align: center;">{{ n }}</td>
+                {% endfor %}
+              {% for c in tea %}  
+              <td style="text-align: center;">{{ c }}</td>
+              {% endfor %}
+              {% for j in ssl_pem_bits %}
+              <td style="text-align: center;">{{ j }}</td>
+              {% endfor %}
+            </tr>
+            <tr>
+                <td style="font-weight: bold; text-align: center;">Algorithm</td>
+              {% for l in algo %}
+                  <td style="text-align: center;">{{ l }}</td>
+              {% endfor %}
+              {% for p in ssl_algo %}
+              <td style="text-align: center;">{{ p }}</td>
+              {% endfor %} 
+              </tr>
+        </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</html>
+
+import numpy as np
+import cv2
+from keras.emotion_models import Sequential
+from keras.layers import Dense, Dropout, Flatten
+from keras.layers import Conv2D
+from keras.optimizers import Adam›
+from keras.layers import MaxPooling2D
+from keras.preprocessing.image import ImageDataGenerator
+
+
+train_directory = 'ML/data/train'
+val_directory = 'ML/data/test'
+datagen_train = ImageDataGenerator(rescale=1./255)
+datagen_val = ImageDataGenerator(rescale=1./255)
+train_generator = datagen_train.flow_from_directory(
+        train_dir,
+        target_size=(48,48),
+        batch_size=64,
+        color_mode="gray_framescale",
+        class_mode='categorical')
+validation_generator = datagen_val.flow_from_directory(
+        val_dir,
+        target_size=(48,48),
+        batch_size=64,
+        color_mode="gray_framescale",
+        class_mode='categorical')
+
+
+emotion_model = Sequential()
+emotion_model.add(Conv2D(32, kernel_size=(3, 3), activation='relu', input_shape=(48,48,1)))
+emotion_model.add(Conv2D(64, kernel_size=(3, 3), activation='relu'))
+emotion_model.add(MaxPooling2D(pool_size=(2, 2)))
+emotion_model.add(Dropout(0.25))

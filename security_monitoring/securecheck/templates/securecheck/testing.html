@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>jQuery: table pagination</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+
+
+  <style type="text/css">
+    
+  </style>
+  <!-- TODO: Missing CoffeeScript 2 -->
+</head>
+
+<body>
+    <div id="totalcerts" style="padding-right: 0rem; width: 95%; height: 500px; margin-left: 2.5rem; padding-top: 0rem;" class="card">
+        <table id="datt" style="width: 100%;  margin-left: 0rem; margin-bottom: 0rem; margin-top: 0rem; padding-top: 0rem;" class="table table-hover paginated">
+          <tbody>
+            <p id="certs" style="color: black; background-color: white; width: 100%; padding-right: 50px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; border-style: solid; border-left: 0px; border-right: 0px; border-top: 0px; border-bottom-style: solid; border-bottom-color: black; border-bottom-width: thin; margin: 0; text-align: center; font-size: 25px; font-weight: bold;">Certificates</p>
+  <tr>
+    <th style="color: black; background-color: white; font-weight: bold; text-align: center; font-size: 20px;">Subject</th>
+    <th style="color: black; background-color: white; font-weight: bold; text-align: center; font-size: 20px;">Signature Algorithm</th>
+  </tr>          
+            {% for con in formdata %}
+  <tr>
+    <td>{{ con.id }}</td>
+    <td>{{ con.name }}</td>
+    <td>{{ con.cont }}</td>
+  <td>
+    <button style="margin-right: 3rem;" name="entry_id" href="">Update</button>
+    <a href = "/Delete/{{ con.id }}">Delete</a>
+  </form>
+  </td>
+  </tr>
+  {% endfor %}
+  <tr>
+      <td>alskdjf</td>
+      <td>hasdhfasdf</td>
+      <td>laskdjflaksjdf</td>
+  </tr>
+  <tr>
+      <td>alsdjflkasdf</td>
+      <td>hshehfoshd</td>
+      <td>jdhlp;shjsl</td>
+  </tr>
+          </tbody>
+        </table>
+      </div>
+  <h1 style="color: white; display: inline;">s</h1>
+</body>
+<script type="text/javascript">
+    $(function() {
+        $('table.paginated').each(function() {
+          var currentPage = 0;
+          var numPerPage = 10;
+          var $table = $(this);
+          $table.bind('repaginate', function() {
+            $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
+          });
+          $table.trigger('repaginate');
+          var numRows = $table.find('tbody tr').length;
+          var numPages = Math.ceil(numRows / numPerPage);
+          var $pager = $('<div hidden class="pager"></div>');
+          var $previous = $('<button style:"margin-top: 30rem;" class="previous"><<</button>');
+          var $next = $('<button class="next">>></button>');
+          for (var page = 0; page < numPages; page++) {
+            $('<span class="page-number"></span>').text("s").bind('click', {
+              newPage: page
+            }, function(event) {
+              currentPage = event.data['newPage'];
+              $table.trigger('repaginate');
+              $(this).addClass('active').siblings().removeClass('active');
+            }).appendTo($pager).addClass('clickable');
+          }
+          $pager.insertAfter($table).find('span.page-number:first').addClass('active');
+          $previous.insertBefore('h1');
+          $next.insertAfter('h1');
+      
+          $next.click(function(e) {
+            $previous.addClass('clickable');
+            $pager.find('.active').next('.page-number.clickable').click();
+          });
+          $previous.click(function(e) {
+            $next.addClass('clickable');
+            $pager.find('.active').prev('.page-number.clickable').click();
+          });
+          $table.on('repaginate', function() {
+            $next.addClass('clickable');
+            $previous.addClass('clickable');
+      
+            setTimeout(function() {
+              var $active = $pager.find('.page-number.active');
+              if ($active.next('.page-number.clickable').length === 0) {
+                $next.removeClass('clickable');
+              } else if ($active.prev('.page-number.clickable').length === 0) {
+                $previous.removeClass('clickable');
+              }
+            });
+          });
+          $table.trigger('repaginate');
+        });
+      });
+</script>
+
+</html>

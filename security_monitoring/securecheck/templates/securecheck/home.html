@@ -1,0 +1,532 @@
+<!doctype html>
+  <div id="mySidenav" class="sidenav" style="">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+  <div id="main">
+    <div style="flex: auto;">
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/static/securecheck/styles.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+    <style>
+        .hello-msg {
+            font-size: 18px;
+            color: white;
+            margin-right: 20px;
+        }
+        div.card {
+  width: 450px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+div.header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  font-size: 40px;
+}
+
+div.container {
+  padding: 10px;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: auto;
+    content: "";
+    background-color: rgba(0,0,0,0);
+}
+    </style>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Security monitoring</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Analytics</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Products
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+          </li>
+        </ul>
+        <span class="hello-msg">Hello, {{ request.user }}</span>
+        <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <span style="float: left; font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <form method = "post" action = "{% url 'home' %}" enctype = "multipart/form-data" style="margin-left: 5rem; margin-top: 0.7rem; margin-right: 34rem; float: right;">
+    <label style="font-size: 20px;">Check validity of SSL Certificates and Keys (formats allowed: .txt, .crt, .pem, .pub, .pkcs, .key)</label>
+      {% csrf_token %}
+      <input type="file" name="filess" multiple="true">
+      <button formaction="{% url 'newanalytics' %}">Submit</button>
+  </form>
+    <div class="card text-white bg-dark mb-3" style="width: 22rem; float: left; margin-top: 3rem; margin-left: 1rem; height: 11rem; margin-bottom: 2rem;">
+      <div class="card-header">Certificates</div>
+      <div class="card-body">
+        <h5 class="card-title">Total Certificates</h5>
+        <svg style="float: left; color: white; padding-left: 5rem; margin-left: 2rem; margin-bottom: 4rem; padding-bottom: 2rem;" xmlns="http://www.w3.org/2000/svg" width="130" height="100" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+          <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+          <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+        </svg>
+        <p style="text-align: center; font-weight: bold; font-size: 30px; padding-top: 1.2rem; float: left; margin-left: 1rem;" class="card-text">15</p>
+        <a href="{% url 'newpdf' %}" target="_blank" rel="noopener noreferrer" class="stretched-link"></a>
+      </div>
+    </div>
+    <div class="card text-white bg-dark mb-3" style="width: 22rem; float: left; margin-top: 3rem; margin-left: 3rem; height: 11rem; margin-bottom: 2rem;">
+      <div class="card-header">Keys</div>
+      <div class="card-body">
+        <h5 class="card-title">Total Keys</h5>
+        <svg style="float: left; color: white; padding-left: 5rem; margin-left: 2rem; margin-bottom: 4rem; padding-bottom: 2rem; padding-top: 1.2rem;" xmlns="http://www.w3.org/2000/svg" width="130" height="100" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+          <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z"/>
+          <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+        </svg>
+        <p style="text-align: center; font-weight: bold; font-size: 30px; padding-top: 1.2rem; float: left; margin-left: 1rem;" class="card-text">25</p>
+        <a href="{% url 'newkeyspdf' %}" target="_blank" rel="noopener noreferrer" class="stretched-link"></a>
+      </div>
+      </div>
+      <div class="card text-white bg-dark mb-3" style="width: 22rem; float: left; margin-top: 3rem; margin-left: 3rem; height: 11rem; margin-bottom: 2rem;">
+          <div class="card-header">Bad certificates</div>
+          <div class="card-body">
+            <h5 class="card-title">Expired, Revoked or Bad encryption</h5>
+            <p style="text-align: center; font-weight: bold; font-size: 30px;" class="card-text">5</p>
+          </div>
+          </div>
+          <div class="card text-white bg-dark mb-3" style="width: 22rem; float: right; margin-top: 3rem; margin-left: 1rem; height: 11rem; margin-right: 17.5rem; margin-bottom: 2rem;">
+              <div class="card-header">Bad keys</div>
+              <div class="card-body">
+                <h5 class="card-title">Expired, Revoked or Bad encryption</h5>
+                <p style="text-align: center; font-weight: bold; font-size: 30px;" class="card-text">10</p>
+              </div>
+            </div>
+    <div style="margin-bottom: 0rem; margin-left: 2.8rem; margin-top: 2rem; float: left; width: 560px; height: 435px;" class="card">
+        <div style="float: left; margin-top: 0rem; margin-bottom: 0rem; margin-left: 0rem; margin-right: 0rem;" id="piechartt">
+        
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        
+        <script type="text/javascript">
+        // Load google charts
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        
+        // Draw the chart and set the chart values
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['yolo', 2],
+          ['yo', 3],
+          ['Expired', {{ statjson }}],
+          ['notusingSHA256', {{ encjson }}],
+        ]);
+        
+          // Optional; add a title and set the width and height of the chart
+          var options = {'title':'Combined Parameters', 'width':550, 'height':430, is3D: true};
+        
+          // Display the chart inside the <div> element with id="piechart"
+          var chart = new google.visualization.PieChart(document.getElementById('piechartt'));
+          chart.draw(data, options);
+        }
+        </script>
+        </div>
+        </div>
+    <div style="margin-bottom: 2rem; margin-left: 0rem; margin-right: 17.5rem; margin-top: 2rem; padding-left: 3rem; width: 964px; padding-top: 1rem; padding-bottom: 1rem; padding-right: 5rem; float: right;" class="card">
+          <div style="overflow: hidden; float: right; padding-bottom: 0rem; padding-right: 7rem; padding-top: 0rem;" id="chart_line_more">
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+              google.charts.load('current', {'packages':['line']});
+              google.charts.setOnLoadCallback(drawChart);
+        
+            function drawChart() {
+        
+              var data = new google.visualization.DataTable();
+              data.addColumn('date', 'Month');
+              data.addColumn('number', 'NotusingSHA256');
+              data.addColumn('number', 'Revoked');
+              data.addColumn('number', 'Expired');
+        
+              data.addRows([
+                [new Date(2021, 0),  2, 2, 3],
+                [new Date(2021, 1),  3, 1, 5],
+                [new Date(2021, 2),  5, 4, 6],
+                [new Date(2021, 3),  2, 2, 3],
+                [new Date(2021, 4),  {{ statjson }}, {{ encjson }}, {{ encjson }}],
+                [new Date(2021, 5),   null, null, null],
+                [new Date(2021, 6),   null, null, null],
+                [new Date(2021, 7),  null, null, null],
+                [new Date(2021, 8),  null, null, null],
+                [new Date(2021, 9), null, null, null],
+                [new Date(2021, 10),  null, null, null],
+                [new Date(2021, 11),  null, null, null],
+              ]);
+        
+              var options = {
+                chart: {
+                  title: 'Certificate parameters',
+                  subtitle: 'Expired, Revoked or Bad encryption'
+                },
+                width: 885,
+                height: 400,
+                axes: {
+                  x: {
+                    0: {side: 'bottom'}
+                  }
+                }
+              };
+        
+              var chart = new google.charts.Line(document.getElementById('chart_line_more'));
+        
+              chart.draw(data, google.charts.Line.convertOptions(options));
+            }
+          </script>
+          </div>
+          </div>
+
+  <div style="padding-right: 20rem; width: 1550px; margin-left: 2.8rem; padding-top: 0rem; margin-bottom: 2rem;" class="card">
+    <table style="width: 1550px; padding-right: 20rem; margin-left: 0rem; margin-bottom: 0rem; margin-top: 0rem; padding-top: 0rem;" class="table table-hover">
+        <tbody>
+          <p style="width: 1550px; padding-right: 50px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; border-style: solid; border-left: 0px; border-right: 0px; border-top: 0px; border-bottom-style: solid; border-bottom-color: black; border-bottom-width: thin; margin: 0; text-align: center; font-size: 25px; font-weight: bold;">TOTAL CERTIFICATES</p>
+            <tr>
+            <td style="font-weight: bold; text-align: center; font-size: 20px;">Not Valid Before</td>
+            {% for y in date_before %}
+                <td style = "text-align:center">{{ y }}</td>
+            {% endfor %}
+            </tr>
+            <tr>
+                <td style="font-weight: bold; text-align: center; font-size: 20px;">Not Valid After</td>
+                {% for x in date_after %}
+                <td style="text-align: center;">{{ x }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td style="font-weight: bold; text-align: center; font-size: 20px;">Subject</td>
+                {% for c in sub %}
+                <td style="text-align: center;">{{ c }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td style="font-weight: bold; text-align: center; font-size: 20px;">Encryption</td>
+                {% for s in enc %}
+                <td style="text-align: center;">{{ s }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td style="font-weight: bold; text-align: center; font-size: 20px;">Status</td>
+                {% for d in stat %}
+                <td style="text-align: center;">{{ d }}</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+        </table>
+        </div>
+    </div>
+    <hr>
+<div style="margin-bottom: 5rem; margin-left: 2.8rem; margin-top: 1rem; float: left; width: 560px; height: 435px;" class="card">
+    <div style="float: left; margin-top: 0rem; margin-bottom: 0rem; margin-left: 0rem; margin-right: 0rem;" id="piechart4">
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        
+        <script type="text/javascript">
+        // Load google charts
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        
+        // Draw the chart and set the chart values
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Expired', {{ statjson }}],
+          ['notusingsha256', {{ encjson }}],
+        ]);
+        
+          // Optional; add a title and set the width and height of the chart
+          var options = {'title':'My Average Day', 'width':450, 'height':350};
+        
+          // Display the chart inside the <div> element with id="piechart"
+          var chart = new google.visualization.PieChart(document.getElementById('piechart4'));
+          chart.draw(data, options);
+        }
+        </script>
+        </div>
+    </div>
+    <div style="margin-bottom: 2rem; margin-left: 0rem; margin-right: 17.3rem; margin-top: 1rem; padding-left: 3rem; width: 964px; padding-top: 1rem; padding-bottom: 1rem; padding-right: 5rem; float: right;" class="card">
+      <div style="float: right; padding-bottom: 0rem; padding-right: 7rem; padding-top: 0rem;" id="new_chart1">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+          google.charts.load('current', {'packages':['line']});
+          google.charts.setOnLoadCallback(drawChart);
+    
+        function drawChart() {
+    
+          var data = new google.visualization.DataTable();
+          data.addColumn('date', 'Month');
+          data.addColumn('number', 'NotusingSHA256');
+          data.addColumn('number', 'Revoked');
+          data.addColumn('number', 'Expired');
+    
+          data.addRows([
+            [new Date(2021, 0),  2, 2, 3],
+            [new Date(2021, 1),  3, 1, 5],
+            [new Date(2021, 2),  5,   4, 6],
+            [new Date(2021, 3),  2, 3, 5],
+            [new Date(2021, 4),  null, null, null],
+            [new Date(2021, 5),   null, null, null],
+            [new Date(2021, 6),   null, null, null],
+            [new Date(2021, 7),  null, null, null],
+            [new Date(2021, 8),  null, null, null],
+            [new Date(2021, 9), null, null, null],
+            [new Date(2021, 10),  null, null, null],
+            [new Date(2021, 11),  null, null, null],
+          ]);
+    
+          var options = {
+            chart: {
+              title: 'Certificate parameters',
+              subtitle: 'Expired, Revoked or Bad encryption'
+            },
+            width: 885,
+            height: 400,
+            axes: {
+              x: {
+                0: {side: 'bottom'}
+              }
+            }
+          };
+    
+          var chart = new google.charts.Line(document.getElementById('new_chart1'));
+    
+          chart.draw(data, google.charts.Line.convertOptions(options));
+        }
+      </script>
+      </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+</body>
+<!-- Footer -->
+<footer style="margin-top: 35rem;" class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Form -->
+    <section class="">
+      <form action="">
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center">
+          <!--Grid column-->
+          <div class="col-auto">
+            <p class="pt-2">
+              <strong>Don't have an account? Register Now!</strong>
+            </p>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-md-5 col-12">
+            <!-- Email input -->
+            <div class="form-outline form-white mb-4">
+              <input placeholder="Email Address" type="email" id="form5Example2" class="form-control" />
+            </div>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-auto">
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-outline-light mb-4">
+              Submit
+            </button>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </form>
+    </section>
+    <!-- Section: Form -->
+
+    <!-- Section: Text -->
+    <section class="mb-4">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
+        eum harum corrupti dicta, aliquam sequi voluptate quas.
+      </p>
+    </section>
+    <!-- Section: Text -->
+
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">About</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Services</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Products</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Contact</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+</html>
