@@ -8,16 +8,16 @@
 
 ## Steps to setup the project:-
 * Install python:-
-	* sudo apt install python3-pip (Linux)
+	* `sudo apt install python3-pip` (Linux)
 	* Install python directly from website (along with the pip3 tool): python.org (windows)
 
 * Drag/Copy the entire folder over to your filesystem.
 
 * Install django:-
-	* pip install django or pip3 install django
+	* `pip install django` or `pip3 install django`
 
 * Or use:
-	* pip install -r requirements.txt
+	* `pip install -r requirements.txt`
 
 * Setup MYSQL database:-
 	* Login to mysql as root user -> mysql -u root -p 'user_password'
@@ -29,15 +29,15 @@
 	* Got to file Settings.py and in DATABASES section change the parameters according to your database info.
 
 * To create superuser user the command:-
-	* python3 manage.py createsuperuser (not necessary)
+	* `python3 manage.py createsuperuser` (not necessary)
 
 
 * Run commands to migrate database:-
 	* Go to the root of your project and in the terminal use the following commands:
-		* python3 manage.py makemigrations
-		* python3 manage.py migrate
+		* `python3 manage.py makemigrations`
+		* `python3 manage.py migrate`
 	* If error says table already exists use command:
-		* python3 manage.py migrate --fake securecheck(app name)
+		* `python3 manage.py migrate --fake securecheck(app name)`
 
 * To run the project use command:
-	* python3 manage.py runserver
+	* `python3 manage.py runserver`
