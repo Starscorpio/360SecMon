@@ -19,7 +19,7 @@
 * Or use:
 	* `pip install -r requirements.txt`
 
-* Database migration:- (Refer to dbsetup.txt)
+* Database migration:- (To setup manually, refer to dbsetup.txt)
 	* Use model.py to created database models
 	* Run commands to migrate database:-
 		* `python3 manage.py makemigrations`
