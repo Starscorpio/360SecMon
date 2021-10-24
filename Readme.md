@@ -17,8 +17,8 @@
 Python | Django
 ------------ | -------------
 `python3 -m install` | `python3 -m django.py`
-![](https://github.com/Starscorpio/360SecMon/blob/main/gifs/Python_final.jpeg)
-{:.some-css-class width="200"} | ![](https://github.com/Starscorpio/360SecMon/blob/main/gifs/django.png)
+<img src=https://github.com/Starscorpio/360SecMon/blob/main/gifs/Python_final.jpeg>
+![](https://github.com/Starscorpio/360SecMon/blob/main/gifs/Python_final.jpeg){:.some-css-class width="200"} | ![](https://github.com/Starscorpio/360SecMon/blob/main/gifs/django.png)
 <p align="center">
   <img width="300" src="https://github.com/Starscorpio/360SecMon/blob/main/gifs/Python_final.jpeg" alt="Python">
 </p> | 
