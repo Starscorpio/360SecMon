@@ -1,8 +1,8 @@
 # 360 Degree Security Monitoring of an Enterprise
 
 <p align="center">
-    ![](https://github.com/Starscorpio/360SecMon/blob/main/gifs/360SecMon%20(1).gif)
-</p
+  <img width="200" src="https://github.com/Starscorpio/360SecMon/blob/main/gifs/360SecMon%20(1).gif" alt="Material Bread logo">
+</p>
 
 
 
