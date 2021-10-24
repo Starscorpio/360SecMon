@@ -8,6 +8,9 @@
 
 
 # Overview
+<p align="center">
+  <img width="500" src="https://github.com/Starscorpio/360SecMon/blob/main/gifs/Screenshot%202021-10-24%20at%205.51.13%20PM.png" alt="Material Bread logo">
+</p>
 ## Basic Prerequisities to setup the project:-
 * python3
 * pip3
