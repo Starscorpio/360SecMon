@@ -23,7 +23,8 @@ Python | Django
 ------------ | -------------
 <p align="center">
   <img width="300" src="https://github.com/Starscorpio/360SecMon/blob/main/gifs/Python_final.jpeg" alt="Python">
-</p> | <p align="center">
+</p> | 
+<p align="center">
   <img width="300" src="https://github.com/Starscorpio/360SecMon/blob/main/gifs/django.png" alt="Django">
 </p>
 Content in the first column | Content in the second column
