@@ -13,11 +13,11 @@
 </p>
 
 # Features
-__Procurement:__ Procures security objects from users like SSL certificates, Public and Private SSH keys, Keystores like PKCS and JKS, etc.
-* Displays metadata of the security objects on an Analytical dashboard and provides an insight about the risk and mitigation/remedition actions.
+* __Procurement:__ Procures security objects from users like SSL certificates, Public and Private SSH keys, Keystores like PKCS and JKS, etc.
+* __Dashboard:__ Displays metadata of the security objects on an Analytical dashboard and provides an insight about the risk and mitigation/remedition actions.
 * Dashboard also includes bar chart and trend line to get a specific numerical value and understand the overall trend.
-* Notification system available for users to notify changes that need to be made.
-* CRUD (Create, Retrieve, Update, Delete) functionality also avaiable to all end users.
+* __Notification system:__ Notification system available for users to notify changes that need to be made.
+* __CRUD:__ CRUD (Create, Retrieve, Update, Delete) functionality also avaiable to all end users.
 
 # Prerequisities
 * python3
