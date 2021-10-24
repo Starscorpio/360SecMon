@@ -1,5 +1,12 @@
 # 360 Degree Security Monitoring of an Enterprise
 
+![](https://github.com/Starscorpio/360SecMon/blob/main/gifs/360SecMon.gif)
+
+
+
+
+
+
 ## Basic Prerequisities to setup the project:-
 * python3
 * pip3
