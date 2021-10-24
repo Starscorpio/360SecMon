@@ -17,7 +17,7 @@
 Python | Django
 ------------ | -------------
 <img src="https://github.com/Starscorpio/360SecMon/blob/main/gifs/Python_final.jpeg" width="300" height="200"> | <img src="https://github.com/Starscorpio/360SecMon/blob/main/gifs/django.png" width="300" height="200">
-`python3 -m install` | `python3 -m django.py`
+`sudo apt-get install python3.8 python3-pip` | `python3 -m django.py`
 
 
 * python3
