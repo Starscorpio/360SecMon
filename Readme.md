@@ -16,9 +16,10 @@
 # Prerequisities
 Python | Django
 ------------ | -------------
-`python3 -m install` | `python3 -m django.py`
 <img src="https://github.com/Starscorpio/360SecMon/blob/main/gifs/Python_final.jpeg" width="300" height="200"> | <img src="https://github.com/Starscorpio/360SecMon/blob/main/gifs/django.png" width="300" height="200">
-Content in the first column | Content in the second column
+`python3 -m install` | `python3 -m django.py`
+
+
 * python3
 * pip3
 * django framework
