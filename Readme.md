@@ -16,7 +16,7 @@
 # Prerequisities
 Python | Django
 ------------ | -------------
-<img src="https://github.com/Starscorpio/360SecMon/blob/main/gifs/Python_final.jpeg" width="300" height="300"> | <img src="https://github.com/Starscorpio/360SecMon/blob/main/gifs/django.png" width="300" height="300">
+<img src="https://github.com/Starscorpio/360SecMon/blob/main/gifs/Python_final.jpeg" width="400" height="300"> | <img src="https://github.com/Starscorpio/360SecMon/blob/main/gifs/django.png" width="300" height="300">
 `sudo apt-get install python3.8 python3-pip` | `python3 -m django.py`
 
 
