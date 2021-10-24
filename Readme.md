@@ -21,7 +21,7 @@
 # Prerequisities
 Python | Django
 ------------ | -------------
-python3 -m install | python3 -m django.py
+`python3 -m install` | `python3 -m django.py`
 <p align="center">
   <img width="300" src="https://github.com/Starscorpio/360SecMon/blob/main/gifs/Python_final.jpeg" alt="Python">
 </p> | 
