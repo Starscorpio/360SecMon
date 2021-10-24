@@ -11,7 +11,8 @@
 <p align="center">
   <img width="800" src="https://github.com/Starscorpio/360SecMon/blob/main/gifs/Screenshot%202021-10-24%20at%205.51.13%20PM.png" alt="Material Bread logo">
 </p>
-## Prerequisities
+
+# Prerequisities
 * python3
 * pip3
 * django framework
