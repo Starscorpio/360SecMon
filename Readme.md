@@ -19,6 +19,14 @@
 * __CRUD:__ CRUD (Create, Retrieve, Update, Delete) functionality also avaiable to all end users.
 
 # Prerequisities
+Python | Django
+------------ | -------------
+<p align="center">
+  <img width="300" src="https://github.com/Starscorpio/360SecMon/blob/main/gifs/Python.png" alt="Python">
+</p> | <p align="center">
+  <img width="300" src="https://github.com/Starscorpio/360SecMon/blob/main/gifs/django.png" alt="Django">
+</p>
+Content in the first column | Content in the second column
 * python3
 * pip3
 * django framework
