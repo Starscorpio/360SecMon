@@ -11,7 +11,7 @@
 * __Procurement:__ Procures security objects from users like SSL certificates, Public and Private SSH keys, Keystores like PKCS and JKS, etc.
 * __Dashboard:__ Displays metadata of the security objects on an Analytical dashboard and provides an insight about the risk and mitigation/remedition actions. It also includes bar chart and trend line to get a specific numerical value and understand the overall trend.
 * __Notification system:__ Notification system available for users to notify changes that need to be made.
-* __CRUD:__ CRUD (Create, Retrieve, Update, Delete) functionality also avaiable to all end users.
+* __CRUD:__ CRUD (Create, Retrieve, Update, Delete) functionality also available for all end users.
 
 # Prerequisities
 Python | Django
