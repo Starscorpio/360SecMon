@@ -22,24 +22,18 @@ Python | Django
 **For installation of other libraries, packages and modules use requirements.txt.**
 
 # Installation
-* Install python:-
-	* `sudo apt install python3-pip` (Linux)
-	* Install python directly from website (along with the pip3 tool): python.org (windows)
+* **Make sure you have installed all the prerequisities mentioned above**
 
 * Drag/Copy the entire folder over to your filesystem.
 
-* Install django:-
-	* `pip install django` or `pip3 install django`
+* Install prerequisities using: `pip install -r requirements.txt`
 
-* Or use:
-	* `pip install -r requirements.txt`
-
-* Database migration:- (To setup manually, refer to dbsetup.txt)
+* Database migration (To setup manually, refer to dbsetup.txt)
 	* Use model.py to created database models
-	* Run commands to migrate database:-
+	* Run the following commands to migrate the database:
 		* `python3 manage.py makemigrations`
 		* `python3 manage.py migrate`
-	* If error says "table already exists" use command:
+	* If error says "table already exists", use command:
 		* `python3 manage.py migrate --fake securecheck(app name)`
 
 * To run the project use command:
