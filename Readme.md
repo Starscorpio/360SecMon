@@ -26,7 +26,7 @@ Python | Django
 * django framework
 * for installation of other libraries, packages and modules use requirements.txt
 
-## Installation
+# Installation
 * Install python:-
 	* `sudo apt install python3-pip` (Linux)
 	* Install python directly from website (along with the pip3 tool): python.org (windows)
